@@ -147,3 +147,65 @@
              productGrid.innerHTML = output;
          })
          .catch(error => console.log('Error fetching products:', error));
+//new
+   // Array of product data
+   const products = [
+    { id: 1, name: 'Product 1', price: 10 },
+    { id: 2, name: 'Product 2', price: 15 },
+    { id: 3, name: 'Product 3', price: 20 },
+    { id: 4, name: 'Product 4', price: 25 },
+    { id: 5, name: 'Product 5', price: 30 },
+    { id: 6, name: 'Product 6', price: 35 },
+    { id: 7, name: 'Product 7', price: 40 },
+    { id: 8, name: 'Product 8', price: 45 }
+];
+
+// Inject product cards into the grid
+const productGrid = document.getElementById('product-grid');
+products.forEach(product => {
+    productGrid.innerHTML += `
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${product.name}</h5>
+                    <p class="card-text">Price: $${product.price}</p>
+                    <button class="btn btn-primary add-to-cart" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    `;
+});
+
+// Handle Add to Cart button click
+const cartItems = [];
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', (e) => {
+        const productId = e.target.getAttribute('data-id');
+        const productName = e.target.getAttribute('data-name');
+        const productPrice = e.target.getAttribute('data-price');
+
+        // Add item to cart array
+        cartItems.push({ id: productId, name: productName, price: productPrice });
+
+        // Update the cart UI
+        updateCartUI();
+    });
+});
+
+// Update Cart UI in Offcanvas
+function updateCartUI() {
+    const cartList = document.getElementById('cart-items');
+    cartList.innerHTML = ''; // Clear the list
+
+    cartItems.forEach(item => {
+        cartList.innerHTML += `
+            <li class="list-group-item">
+                ${item.name} - $${item.price}
+            </li>
+        `;
+    });
+
+    // Trigger the offcanvas to open
+    const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasCart'));
+    offcanvas.show();
+}
