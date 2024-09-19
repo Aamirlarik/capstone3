@@ -1,18 +1,17 @@
-document.getElementById('loginForm').addEventListener('submit', function(event){
+document.getElementById("loginForm").addEventListener('submit',function (event) {
     event.preventDefault();
 
-    
-    let localEmail = localStorage.setItem('https://fakestoreapi.com/users');
-    let localPassword = localStorage.getItem('https://fakestoreapi.com/users');
-    const userData = users.map(user => ({ email: user.email, password: user.password }));
-      localStorage.getItemetItem('users', JSON.stringify(userData));
+let localEmail = localStorage.getItem("Email");
+let localPassword = localStorage.getItem("Password");
 
-    if(userEmail === localEmail && userPassword ===localPassword ){
-        alert("Login successfully!");
-        window.location.href = "./signin.html";
-        
-    } else{
-        alert("Wrong password!");
-    }
+    let userEmail = document.getElementById('userEmail').value
+    let userPassword = document.getElementById('userPassword').value
     
-})
+    if(userEmail === localEmail && userPassword === localPassword){
+        window.location.href = "./index.html"
+    }else{
+        alert('something went wrong')
+    }
+       
+    
+});

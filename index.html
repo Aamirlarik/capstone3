@@ -240,11 +240,11 @@
         </div>
     </section>
 
-    <!-- <div class="container mt-5">
+    <div class="container mt-5 ">
         <div id="product-grid">
-             Rows of products will be injected here -->
+            <!-- Rows of products will be injected here -->
         </div>
-    </div>  -->
+    </div>
 
 
     <section>
@@ -294,9 +294,11 @@
 
               
              
-                <!-- Popular Products Section -->      
+                <!-- Popular Products Section -->
+               
 
-                <div class="col-md-9">
+
+                <div class="col-md-9 ">
                     <h3>Popular products</h3>
                     <div id="product-grid" class="d-flex flex-wrap">
                         <!-- Product Card 1 -->
@@ -417,16 +419,22 @@
        
 
         <!-- Offcanvas Shopping Cart -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="shoppingCartCanvas" aria-labelledby="shoppingCartLabel">
-            <div class="offcanvas-header">
-                <h5 id="shoppingCartLabel">Shopping Cart</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body" id="cart-items">
-                <p>Your cart is empty!</p>
-            </div>
+        <!-- Cart Offcanvas -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="shoppingCartCanvas" aria-labelledby="shoppingCartCanvasLabel">
+    <div class="offcanvas-header">
+        <h5 id="shoppingCartCanvasLabel">Shopping Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div id="cart-items">
+            <!-- Cart items will be dynamically added here -->
         </div>
+        <div class="d-flex justify-content-between mt-3">
+            <strong>Total:</strong>
+            <span id="cart-total">$0.00</span>
+        </div>
+    </div>
+</div>
 
 
 
@@ -527,24 +535,7 @@
         </div>
     </section>
 
-    <div class="container mt-5">
-        <div id="product-grid" class="row">
-            <!-- 8 Product Cards -->
-        </div>
-    </div>
-    
-    <!-- Offcanvas Cart -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasCartLabel">Shopping Cart</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul id="cart-items" class="list-group">
-                <!-- Items will be added here dynamically -->
-            </ul>
-        </div>
-    </div>
+
 
 
 
@@ -817,7 +808,7 @@
 
 
 
-<section>
+
 
     <footer class="footer bg-dark pb-4" data-bs-theme="dark">
 
@@ -932,7 +923,7 @@
         </p>
     </footer>
 
-</section>
+
 
    
            
